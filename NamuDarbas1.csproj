@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24AD3306-B458-4030-A212-6FEC12BE1448}</ProjectGuid>
+    <ProjectGuid>{365465D4-8CA2-43CE-AC84-F93C3129D62D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConvertNumberToWords</RootNamespace>
-    <AssemblyName>ConvertNumberToWords</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>NamuDarbas1</RootNamespace>
+    <AssemblyName>NamuDarbas1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
