@@ -15,9 +15,7 @@ namespace HomeWorkOne
 
             Console.WriteLine("Pirmas namu darbas. Pirma dalis\n Iveskite skaiciu nuo -9 iki 9 :");
             ivestasTekstas = Ivedimas(ivestasTekstas);
-
             Console.WriteLine($"Ar ivestas skaicius? : {PatikrinimasArTaiSkaicius(ivestasTekstas)}");
-            //bool patikrinimas = PatikrinimasArTaiSkaicius(ivestasTekstas);
             if (PatikrinimasArTaiSkaicius(ivestasTekstas) == false)
             {
                 Console.WriteLine("Ivedete neteisingai. Jusu operacija baigta");
@@ -27,7 +25,6 @@ namespace HomeWorkOne
                 skaicius = Convert.ToInt32(ivestasTekstas);
                 Console.WriteLine($"Ar ivestas skaicius yra reziuose? : {PatikrinimasArReziuose(ivestasTekstas)}");
                 Console.WriteLine();
-                //---------------------------------------------------------------------
                 if (PatikrinimasArReziuose(ivestasTekstas) == true)
                 {
                     Console.WriteLine("Antra dalis\nIvestas skaicius zodziais:");
