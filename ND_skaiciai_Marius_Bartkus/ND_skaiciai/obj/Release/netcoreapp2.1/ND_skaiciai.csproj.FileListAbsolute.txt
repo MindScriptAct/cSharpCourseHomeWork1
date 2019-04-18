@@ -1,0 +1,11 @@
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\bin\Release\netcoreapp2.1\ND_skaiciai.deps.json
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\bin\Release\netcoreapp2.1\ND_skaiciai.runtimeconfig.json
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\bin\Release\netcoreapp2.1\ND_skaiciai.runtimeconfig.dev.json
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\bin\Release\netcoreapp2.1\ND_skaiciai.dll
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\bin\Release\netcoreapp2.1\ND_skaiciai.pdb
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.csprojAssemblyReference.cache
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.csproj.CoreCompileInputs.cache
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.AssemblyInfoInputs.cache
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.AssemblyInfo.cs
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.dll
+F:\Mano\Projektai\ND_Skaiciai\ND_skaiciai\ND_skaiciai\obj\Release\netcoreapp2.1\ND_skaiciai.pdb
