@@ -110,7 +110,7 @@ namespace ConvertNumberToWords
             }
 
         }
-        private static string ChangeOnesToString(String num01)
+        public static string ChangeOnesToString(String num01)
         {
             int _Num01 = Convert.ToInt32(num01);
             String name = "";
@@ -150,7 +150,7 @@ namespace ConvertNumberToWords
             Console.WriteLine("Jusu ivestas skaicius " + name);
             return name;
         }
-
+        private
     }
     
 
