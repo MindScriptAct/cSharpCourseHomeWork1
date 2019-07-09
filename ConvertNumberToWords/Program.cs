@@ -10,8 +10,8 @@ namespace HomeWork_NumberToText
     {
         static void Main(string[] args)
         {
-            const int FROM_NUMBER = -999;
-            const int TO_NUMBER = 999;
+            const int FROM_NUMBER = -999999;
+            const int TO_NUMBER = 999999;
 
 
 
@@ -25,8 +25,9 @@ namespace HomeWork_NumberToText
 
                 string[] singleNumbers = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
                 string[] TeensNumbers = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifthteen", "Sixteen", "Seventeen", "Eightteen", "Nineteen" };
-                string[] DoubleNumbers = { "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+                string[] DoubleNumbers = { "ten", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
                 string hundred = " Hundred";
+                string thousands = " Thousand";
 
                 // Programa 
 
@@ -46,6 +47,8 @@ namespace HomeWork_NumberToText
 
                 bool RangeThreeIndex = GoodRange(convertedNumber, 999, -999);
 
+                bool RangeSixIndex = GoodRange(convertedNumber, 999999, -999999);
+
                 char[] arrayOfStringInput = InputSeparateNumbers(stringInput, isItDigit);
 
                 string numberZeroToNine = ChangeSingleIntsToWords(convertedNumber, RangeOneIndex, singleNumbers);
@@ -56,11 +59,14 @@ namespace HomeWork_NumberToText
 
                 string numberHundreds = ChangeHundredsIntToWords(convertedNumber, RangeThreeIndex, singleNumbers, TeensNumbers, DoubleNumbers, hundred);
 
+                string numberThousandHundreds = ChangeSixNumbersIntToWords(convertedNumber, RangeSixIndex, singleNumbers, TeensNumbers, DoubleNumbers, hundred, thousands);
+
                 string negative = IsNumberNegative(convertedNumber, arrayOfStringInput);
+
 
                 // Printing results: 
 
-                Console.WriteLine($"Your digit: {convertedNumber}\nProgram result: {negative}{numberZeroToNine}{numberWithTwoIndexUpTo19}{numberWithTwoIndex}{numberHundreds}\n");
+                Console.WriteLine($"Your digit: {convertedNumber}\nProgram result: {negative}{numberZeroToNine}{numberWithTwoIndexUpTo19}{numberWithTwoIndex}{numberHundreds}{numberThousandHundreds}\n");
 
                 Console.WriteLine("Press SPACE to exit the program \nOr press enter to Type another number");
 
@@ -287,35 +293,35 @@ namespace HomeWork_NumberToText
                     {
                         case 2:
                         case -2:
-                            answer1 = tys[0];
+                            answer1 = tys[1];
                             break;
                         case 3:
                         case -3:
-                            answer1 = tys[1];
+                            answer1 = tys[2];
                             break;
                         case 4:
                         case -4:
-                            answer1 = tys[2];
+                            answer1 = tys[3];
                             break;
                         case 5:
                         case -5:
-                            answer1 = tys[3];
+                            answer1 = tys[4];
                             break;
                         case 6:
                         case -6:
-                            answer1 = tys[4];
+                            answer1 = tys[5];
                             break;
                         case 7:
                         case -7:
-                            answer1 = tys[5];
+                            answer1 = tys[6];
                             break;
                         case 8:
                         case -8:
-                            answer1 = tys[6];
+                            answer1 = tys[7];
                             break;
                         case 9:
                         case -9:
-                            answer1 = tys[7];
+                            answer1 = tys[8];
                             break;
 
                         default:
@@ -466,35 +472,35 @@ namespace HomeWork_NumberToText
                     switch (secondNumber)
                     {
                         case 2:
-                            tysAnswer = tys[0];
-                            and = "and";
-                            break;
-                        case 3:
                             tysAnswer = tys[1];
                             and = "and";
                             break;
-                        case 4:
+                        case 3:
                             tysAnswer = tys[2];
                             and = "and";
                             break;
-                        case 5:
+                        case 4:
                             tysAnswer = tys[3];
                             and = "and";
                             break;
-                        case 6:
+                        case 5:
                             tysAnswer = tys[4];
                             and = "and";
                             break;
-                        case 7:
+                        case 6:
                             tysAnswer = tys[5];
                             and = "and";
                             break;
-                        case 8:
+                        case 7:
                             tysAnswer = tys[6];
                             and = "and";
                             break;
-                        case 9:
+                        case 8:
                             tysAnswer = tys[7];
+                            and = "and";
+                            break;
+                        case 9:
+                            tysAnswer = tys[8];
                             and = "and";
                             break;
                         default:
@@ -540,6 +546,271 @@ namespace HomeWork_NumberToText
 
         }
 
+        static string ChangeSixNumbersIntToWords(int x, bool rangeIsOkey, string[] singles, string[] teens, string[] tys, string hundred, string thousands)
+        {
+            if (rangeIsOkey)
+            {
+                if (x.ToString().Length == 6 || x.ToString().Length == 7)
+                {
+                    if (x.ToString().Length == 7)
+                    {
+                        x = x * -1;
+                    }
+
+                    int firstNumber = x / 100000 % 10;
+                    int secondNumber = x / 10000 % 10;
+                    int thirdNumber = x / 1000 % 10;
+                    int forthNumber = x / 100 % 10;
+                    int fifthNumber = x / 10 % 10;
+                    int sixthNumber = x % 10;
+
+
+                    string hundredThousands = "";
+                    string tyThousands = "";
+                    string singleThousands = "";
+
+                    string teen = "";
+                    string ty = "";
+                    string single = "";
+
+                    switch (firstNumber)
+                    {
+                        case 1:
+                            hundredThousands = singles[1] + hundred + thousands;
+                            break;
+                        case 2:
+                            hundredThousands = singles[2] + hundred + thousands;
+                            break;
+                        case 3:
+                            hundredThousands = singles[3] + hundred + thousands;
+                            break;
+                        case 4:
+                            hundredThousands = singles[4] + hundred + thousands;
+                            break;
+                        case 5:
+                            hundredThousands = singles[5] + hundred + thousands;
+                            break;
+                        case 6:
+                            hundredThousands = singles[6] + hundred + thousands;
+                            break;
+                        case 7:
+                            hundredThousands = singles[7] + hundred + thousands;
+                            break;
+                        case 8:
+                            hundredThousands = singles[8] + hundred + thousands;
+                            break;
+                        case 9:
+                            hundredThousands = singles[9] + hundred + thousands;
+                            break;
+
+                        default:
+                            break;
+                    }
+                    switch (secondNumber)
+                    {
+                        case 1:
+                            tyThousands = tys[0] + thousands;
+                            break;
+                        case 2:
+                            tyThousands = tys[1] + thousands;
+                            break;
+                        case 3:
+                            tyThousands = tys[2] + thousands;
+                            break;
+                        case 4:
+                            tyThousands = tys[3] + thousands;
+                            break;
+                        case 5:
+                            tyThousands = tys[4] + thousands;
+                            break;
+                        case 6:
+                            tyThousands = tys[5] + thousands;
+                            break;
+                        case 7:
+                            tyThousands = tys[6] + thousands;
+                            break;
+                        case 8:
+                            tyThousands = tys[7] + thousands;
+                            break;
+                        case 9:
+                            tyThousands = tys[8] + thousands;
+                            break;
+                        default:
+                            break;
+                    }
+                    switch (thirdNumber)
+                    {
+                        case 1:
+                            singleThousands = singles[1] + thousands;
+                            break;
+                        case 2:
+                            singleThousands = singles[2] + thousands;
+                            break;
+                        case 3:
+                            singleThousands = singles[3] + thousands;
+                            break;
+                        case 4:
+                            singleThousands = singles[4] + thousands;
+                            break;
+                        case 5:
+                            singleThousands = singles[5] + thousands;
+                            break;
+                        case 6:
+                            singleThousands = singles[6] + thousands;
+                            break;
+                        case 7:
+                            singleThousands = singles[7] + thousands;
+                            break;
+                        case 8:
+                            singleThousands = singles[8] + thousands;
+                            break;
+                        case 9:
+                            singleThousands = singles[9] + thousands;
+                            break;
+                        default:
+                            break;
+                    }
+                    switch (forthNumber)
+                    {
+                        case 1:
+                            hundred = singles[1] + hundred;
+                            break;
+                        case 2:
+                            hundred = singles[2] + hundred;
+                            break;
+                        case 3:
+                            hundred = singles[3] + hundred;
+                            break;
+                        case 4:
+                            hundred = singles[4] + hundred;
+                            break;
+                        case 5:
+                            hundred = singles[5] + hundred;
+                            break;
+                        case 6:
+                            hundred = singles[6] + hundred;
+                            break;
+                        case 7:
+                            hundred = singles[7] + hundred;
+                            break;
+                        case 8:
+                            hundred = singles[8] + hundred;
+                            break;
+                        case 9:
+                            hundred = singles[9] + hundred;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (fifthNumber == 1)
+                    {
+                        switch (sixthNumber)
+                        {
+                            case 0:
+                                teen = teens[0];
+                                break;
+                            case 1:
+                                teen = teens[1];
+                                break;
+                            case 2:
+                                teen = teens[2];
+                                break;
+                            case 3:
+                                teen = teens[3];
+                                break;
+                            case 4:
+                                teen = teens[4];
+                                break;
+                            case 5:
+                                teen = teens[5];
+                                break;
+                            case 6:
+                                teen = teens[6];
+                                break;
+                            case 7:
+                                teen = teens[7];
+                                break;
+                            case 8:
+                                teen = teens[8];
+                                break;
+                            case 9:
+                                teen = teens[9];
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+
+                    switch (fifthNumber)
+                    {
+                        case 2:
+                            ty = tys[1];
+                            break;
+                        case 3:
+                            ty = tys[2];
+                            break;
+                        case 4:
+                            ty = tys[3];
+                            break;
+                        case 5:
+                            ty = tys[4];
+                            break;
+                        case 6:
+                            ty = tys[5];
+                            break;
+                        case 7:
+                            ty = tys[6];
+                            break;
+                        case 8:
+                            ty = tys[7];
+                            break;
+                        case 9:
+                            ty = tys[8];
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    switch (sixthNumber)
+                    {
+                        case 1:
+                            single = singles[1];
+                            break;
+                        case 2:
+                            single = singles[2];
+                            break;
+                        case 3:
+                            single = singles[3];
+                            break;
+                        case 4:
+                            single = singles[4];
+                            break;
+                        case 5:
+                            single = singles[5];
+                            break;
+                        case 6:
+                            single = singles[6];
+                            break;
+                        case 7:
+                            single = singles[7];
+                            break;
+                        case 8:
+                            single = singles[8];
+                            break;
+                        case 9:
+                            single = singles[9];
+                            break;
+                        default:
+                            break;
+                    }
+
+                    return hundredThousands + " " + tyThousands + " " + singleThousands + " " + hundred + " " + ty + " " + teen + " " + single;
+                }
+            }
+            return "";
+        }
 
 
 
