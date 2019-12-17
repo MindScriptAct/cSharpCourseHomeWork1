@@ -179,12 +179,6 @@ namespace ConvertNumberToWords
                     ones = "Astuoni";
                 else if (testNumber == 9 || testNumber == -9)
                  ones = "Devyni";
-                /*
-                if (testNumber < 0)
-                {
-                    ones = "Minus "+ ones;
-                }
-                */
             }
             return ones;    
         }
@@ -212,12 +206,6 @@ namespace ConvertNumberToWords
                     teens = "Astuoniolika";
                 else if (testNumber == 19 || testNumber == -19)
                     teens = "Devyniolika";
-            /*
-            if (testNumber < 0)
-                {
-                    teens = "Minus " + teens;
-                }
-            */
             return teens;
 
         }
