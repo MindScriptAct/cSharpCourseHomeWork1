@@ -23,8 +23,8 @@ namespace ConvertNumberToWords
             const int HUNDREDS_FROM = -999;
             const int HUNDREDS_TO = 999;
 
-            const int THOUSANDS_FROM = -100000;
-            const int THOUSANDS_TO = 100000;
+            const int THOUSANDS_FROM = -999999;
+            const int THOUSANDS_TO = 999999;
 
             Console.WriteLine("Sveiki!");
 
@@ -211,6 +211,7 @@ namespace ConvertNumberToWords
         }
         static string ChangeTensToText(int testNumber, int FROM_NUMBER, int TO_NUMBER)
         {
+
             string tens = "";
             int ones = testNumber % 10;
 
@@ -274,12 +275,19 @@ namespace ConvertNumberToWords
         {
             string thousands = "";
             int hundreds = testNumber % 1000;
+            int tens = testNumber % 10000;
+            int ones = testNumber % 100000;
 
             if (testNumber >= 1000 && testNumber <= 1999 || testNumber >= -1999 && testNumber <= -1000)
                 thousands = "Tukstantis";
 
             int div = testNumber / 1000;
+            int divHundreds = testNumber / 1000;
+            int decimals = testNumber / 10000;
+
             if (div < 0) div = div * -1;
+            if (tens < 0) tens = tens * -1;
+
             for (int i = 1; i <= 9; i++)
             {
                 if (div == i)
@@ -288,7 +296,7 @@ namespace ConvertNumberToWords
                 }
             }
 
-            for (int i = 10; i <= 99; i++)
+            for (int i = 10; i <= 19; i++)
             {
                 if (div == i)
                 {
@@ -300,19 +308,35 @@ namespace ConvertNumberToWords
             {
                 if (div == i)
                 {
-                    thousands = ChangeTensToText(div, 10, 99) + " Tukstanciu";
+                    thousands = ChangeTensToText(div, 10, 99);
+/*!!!QUESTION TO LECTURER:
+                     *when we have ten thousands number (for example 25000), we are calling out function ChangeTensToText.
+                     * Problem is that this function here is reading only tenth /1000 digit of 5 digit number, in this case
+                     * form number  25000 it's reading 20, not 25.
+                     * When I'm working with tens - same function is also called and it gives tenth digit, as well as ones.
+                     * Why this is not happenning here and why I have additionally below call function named ChangeOnesToText to get ones digits.
+ */
+                    if (tens / 1000 == i % 10)
+                        thousands = thousands + ChangeOnesToText(tens / 1000, i % 10, 9) + " Tukstanciai";
+
+                    else {
+                        thousands = thousands + " Tukstanciu";
+                    } 
                 }
             }
+
+           //Console.WriteLine("hundredsthousands" + div);
             for (int i = 100; i <= 999; i++)
-            {
+            {  
                 if (div == i)
                 {
-                    thousands = ChangeHundredsToText(div, 1,9, 10, 19, 100, 99) + " Tukstanciu";
+                    thousands = ChangeHundredsToText(div, 1,9, 10, 19, 100, 999) + " Tukstanciu";                   
                 }
             }
 
             if (hundreds != 0)
             {
+                
                 if ((hundreds >= HUNDREDS_FROM && hundreds < TENS_FROM) || (hundreds > TENS_TO && hundreds <= HUNDREDS_TO))
                 {
                     thousands = thousands + " " + ChangeHundredsToText(hundreds, FROM_NUMBER, TO_NUMBER, TEENS_FROM, TEENS_TO, HUNDREDS_FROM, HUNDREDS_TO);
@@ -321,9 +345,18 @@ namespace ConvertNumberToWords
                 {
                     thousands = thousands + " " + ChangeTeensToText(hundreds, TEENS_FROM, TEENS_TO);
                 }
-                else
+                else if ((hundreds >= TENS_FROM && hundreds < TEENS_FROM) || (hundreds > TEENS_TO && hundreds <= TENS_TO))
                     thousands = thousands + " " + ChangeTensToText(hundreds, FROM_NUMBER, TO_NUMBER);
             }
+            ///
+
+            if (tens != 0)
+            {
+                if ((tens >= TENS_FROM && tens < TEENS_FROM) || (tens > TEENS_TO && tens <= TENS_TO))
+                    thousands = thousands + "  " + ChangeTensToText(tens, FROM_NUMBER, TO_NUMBER);
+            }
+
+            ///
 
             return thousands;
         }
